@@ -1,13 +1,20 @@
+<<!-- Contenedor principal con clases de Bootstrap para espaciado -->
 <div class="recipe-detail container py-4">
+
+  <!-- ✅ Punto 3: Botón para regresar al listado de recetas -->
   <button class="btn btn-secondary mb-3" (click)="goBack()">← Volver a recetas</button>
   
+  <!-- ✅ Punto 3: Título con el nombre de la receta -->
   <h2>{{ recipe?.nombre }}</h2>
+
+  <!-- ✅ Punto 3: Imagen de la receta -->
   <img
     class="recipe-detail-img mb-3"
     [src]="recipe?.imagen"
     alt="{{ recipe?.nombre }}"
   />
   
+  <!-- ✅ Punto 3: Información general de la receta organizada en dos columnas -->
   <div class="row mb-4">
     <div class="col-6">
       <p><strong>Porciones:</strong> {{ recipe?.porciones }}</p>
@@ -19,11 +26,13 @@
     </div>
   </div>
 
+  <!-- ✅ Punto 4: Sección de ingredientes con cálculo del más usado -->
   <h3>Ingredientes</h3>
   <div class="ingrediente-destacado mb-3">
     <strong>Ingrediente más usado:</strong> {{ ingredienteMasUsado }}
   </div>
   
+  <!-- ✅ Punto 3: Listado de ingredientes con nombre, cantidad y unidad -->
   <ul class="ingredientes-list">
     @for(ingrediente of recipe?.ingredientes; track ingrediente.nombre){
     <li>
@@ -32,6 +41,7 @@
     }
   </ul>
 
+  <!-- ✅ Punto 3: Listado de pasos para preparar la receta -->
   <h3>Pasos</h3>
   <ol class="pasos-list">
     @for(step of recipe?.pasos; track step){

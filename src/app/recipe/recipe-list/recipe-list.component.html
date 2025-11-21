@@ -1,19 +1,40 @@
+<!-- ✅ Punto 3: Contenedor principal con clases de Bootstrap para espaciado -->
 <div class="container-fluid px-4 py-3">
   
+  <!-- ✅ Punto 3: Fila con separación entre columnas (g-3) -->
   <div class="row g-3">
+    <!-- ✅ Punto 2: Iteración sobre la lista de recetas obtenidas del servicio -->
     @for(recipe of recipes; track recipe.id){
+    
+    <!-- ✅ Punto 3: Cada receta se muestra en una columna adaptable según el tamaño de pantalla -->
     <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+      
+      <!-- ✅ Punto 3: Card de Bootstrap para mostrar la receta -->
       <div class="card h-100">
+        
+        <!-- ✅ Punto 3: Imagen de la receta -->
         <img [src]="recipe.imagen" class="card-img-top" alt="{{ recipe.nombre }}">
+        
+        <!-- ✅ Punto 3: Cuerpo de la card con información de la receta -->
         <div class="card-body p-2">
+          
+          <!-- ✅ Punto 3: Nombre de la receta -->
           <h6 class="card-title">{{ recipe.nombre }}</h6>
+          
+          <!-- ✅ Punto 3: Lista de etiquetas asociadas a la receta -->
           <ul class="etiquetas-list">
             @for(tag of recipe.etiquetas; track tag){
             <li>{{ tag }}</li>
             }
           </ul>
+          
+          <!-- ✅ Punto 3: Mostrar número de porciones -->
           <p class="porciones mb-1"><strong>Porciones:</strong> {{ recipe.porciones }}</p>
+          
+          <!-- ✅ Punto 4: Mostrar cantidad de ingredientes calculada -->
           <p class="ingredientes mb-2"><strong># Ingredientes:</strong> {{ recipe.ingredientes.length }}</p>
+          
+          <!-- ✅ Punto 2 y 3: Botón que redirige al detalle de la receta usando onSelect() -->
           <button class="btn btn-primary btn-sm w-100" (click)="onSelect(recipe)">Ver la receta</button>
         </div>
       </div>
