@@ -1,12 +1,77 @@
-img.recipe-img {
-  max-width: 250px;
+.card {
+  border: 3px solid #d4a574;
+  border-radius: 8px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  background-color: white;
 }
 
-tr:hover {
-  background-color: pink;
-  cursor: pointer;
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-thead {
-  background-color: palevioletred;
+.card-img-top {
+  height: 180px;
+  object-fit: cover;
+  border-radius: 5px 5px 0 0;
+}
+
+.card-body {
+  padding: 12px !important;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.etiquetas-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 10px;
+  font-size: 0.85rem;
+}
+
+.etiquetas-list li {
+  position: relative;
+  padding-left: 15px;
+  margin-bottom: 3px;
+  color: #555;
+}
+
+.etiquetas-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #333;
+}
+
+.porciones {
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+  font-size: 0.85rem;
+  padding: 6px 12px;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 168px) {
+  .card-img-top {
+    height: 150px;
+  }
+  
+  .card-title {
+    font-size: 0.9rem;
+  }
 }

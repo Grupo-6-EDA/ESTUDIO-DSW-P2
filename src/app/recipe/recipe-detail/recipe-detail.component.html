@@ -1,23 +1,41 @@
-<div class="recipe-detail">
-  <h2>{{ recipe.nombre }}</h2>
+<div class="recipe-detail container py-4">
+  <button class="btn btn-secondary mb-3" (click)="goBack()">← Volver a recetas</button>
+  
+  <h2>{{ recipe?.nombre }}</h2>
   <img
-    class="recipe-detail-img"
-    [src]="recipe.imagen"
-    alt="{{ recipe.imagen }}"
+    class="recipe-detail-img mb-3"
+    [src]="recipe?.imagen"
+    alt="{{ recipe?.nombre }}"
   />
-  <p><strong>Porciones:</strong> {{ recipe.porciones }}</p>
-  <p><strong>Tiempo:</strong> {{ recipe.tiempo_minutos }} min</p>
+  
+  <div class="row mb-4">
+    <div class="col-6">
+      <p><strong>Porciones:</strong> {{ recipe?.porciones }}</p>
+      <p><strong>Dificultad:</strong> {{ recipe?.dificultad }}</p>
+    </div>
+    <div class="col-6">
+      <p><strong>Tiempo:</strong> {{ recipe?.tiempo_minutos }} min</p>
+      <p><strong>Tipo:</strong> {{ recipe?.tipo }}</p>
+    </div>
+  </div>
+
   <h3>Ingredientes</h3>
-  <app-ingredient-list
-    [ingredients]="recipe.ingredientes"
-  ></app-ingredient-list>
+  <div class="ingrediente-destacado mb-3">
+    <strong>Ingrediente más usado:</strong> {{ ingredienteMasUsado }}
+  </div>
+  
+  <ul class="ingredientes-list">
+    @for(ingrediente of recipe?.ingredientes; track ingrediente.nombre){
+    <li>
+      {{ ingrediente.nombre }} - {{ ingrediente.cantidad }} {{ ingrediente.unidad }}
+    </li>
+    }
+  </ul>
 
   <h3>Pasos</h3>
-  <ol>
-    @for(step of recipe.pasos; track step){
-    <li>
-      {{ step }}
-    </li>
+  <ol class="pasos-list">
+    @for(step of recipe?.pasos; track step){
+    <li>{{ step }}</li>
     }
   </ol>
 </div>
